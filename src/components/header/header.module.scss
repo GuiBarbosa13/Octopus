@@ -1,4 +1,5 @@
 $background-white: rgba(255, 255, 255, 0.800);
+$background-absolute-white: white;
 $font-black: rgb(8, 8, 8);
 
 .header {
@@ -45,10 +46,12 @@ $font-black: rgb(8, 8, 8);
                     top: 0px;
                     left: 0;
                     min-width: 100%;
-                    background-color: $background-white;
+                    min-height: 50vh;
+                    background-color: $background-absolute-white;
                     box-sizing: border-box;
                     border: 1px solid #ddd;
                     padding: 60px 10px 10px 10px;
+                    transition: opacity 0.9s ease;
                     z-index: -1; // Garante que o formulário fique acima de outros elementos
                 }
 
