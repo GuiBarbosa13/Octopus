@@ -10,10 +10,9 @@ $font-black: rgb(8, 8, 8);
     background-color: $background-white;
     backdrop-filter: blur(10px);
     position: fixed;
-    margin-top: 0;
+    top: 0;
     width: 100%;
-    min-height: 50px;
-    z-index: 1;
+    max-height: 50px;
 
     nav {
         display: flex;
@@ -22,14 +21,15 @@ $font-black: rgb(8, 8, 8);
 
         img {
             width: 50px;
-            z-index: 2;
+            z-index: 3;
         }
 
         ul {
             display: flex;
             gap: 64px;
             margin: 0;
-            z-index: 1;
+            z-index: 2;
+            padding: 0;
 
             li {
                 text-decoration: none;
@@ -39,10 +39,12 @@ $font-black: rgb(8, 8, 8);
                 height: 100%;
                 color: $font-black;
                 cursor: pointer;
+                overflow: hidden;
+                // z-index: 1;
 
                 .header__formTarefa {
                     display: none;
-                    position: absolute; // Posiciona o formulário em relação ao li
+                    position: absolute;
                     top: 0px;
                     left: 0;
                     min-width: 100%;
@@ -51,12 +53,20 @@ $font-black: rgb(8, 8, 8);
                     box-sizing: border-box;
                     border: 1px solid #ddd;
                     padding: 60px 10px 10px 10px;
-                    transition: opacity 0.9s ease;
-                    z-index: -1; // Garante que o formulário fique acima de outros elementos
+                    z-index: -1;
+                }
+
+                &:hover{
+                    font-weight: 500;
                 }
 
                 &:hover .header__formTarefa{
-                    display: block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    cursor: auto;
+                    padding: 0 156px;
                 }
             }
         }

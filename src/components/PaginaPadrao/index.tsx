@@ -5,6 +5,7 @@ export default function PaginaPadrao(){
     return (
         <>
         <Header/>
+        
         <Outlet/>
         </>
     )
