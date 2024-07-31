@@ -13,6 +13,7 @@ $font-black: rgb(8, 8, 8);
     top: 0;
     width: 100%;
     max-height: 50px;
+    z-index: 4;
 
     nav {
         display: flex;
@@ -48,7 +49,7 @@ $font-black: rgb(8, 8, 8);
                     top: 0px;
                     left: 0;
                     min-width: 100%;
-                    min-height: 50vh;
+                    min-height: 70vh;
                     background-color: $background-absolute-white;
                     box-sizing: border-box;
                     border: 1px solid #ddd;
@@ -62,11 +63,11 @@ $font-black: rgb(8, 8, 8);
 
                 &:hover .header__formTarefa{
                     display: flex;
-                    align-items: center;
+                    align-items: start;
                     justify-content: center;
                     width: 100%;
                     cursor: auto;
-                    padding: 0 156px;
+                    padding: 80px 156px;
                 }
             }
         }

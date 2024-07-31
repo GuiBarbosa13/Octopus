@@ -1,11 +1,13 @@
+import CardTarefa from '../../components/CardTarefa';
 import styles from './Inicio.module.scss'
 
 export default function Inicio() {
     return (
-        <main className={styles.main}>
-            <p>
-                Ola mundo
-            </p>
-        </main>
+        <section className={styles.main}>
+            <h1>Suas Tarefas Pendentes</h1>
+            <div className={styles.main__cardTarefaContainer}>
+                <CardTarefa/>
+            </div>
+        </section>
     );
 }

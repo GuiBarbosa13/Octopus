@@ -1,4 +1,18 @@
-main{
+$font-white: white;
+
+.main {
     margin-top: 50px;
-    color: white;
+    padding: 20px 156px;
+    color: $font-white;
+
+    h1 {
+        text-align: center;
+    }
+
+    &__cardTarefaContainer {
+        display: flex;
+        justify-content: space-around;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
 }

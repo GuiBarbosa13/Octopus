@@ -1,0 +1,115 @@
+$black-font: black;
+$grey-background: rgba(199, 199, 199, 0.267);
+
+.cardTarefaContainer {
+    display: flex;
+    background-color: $grey-background;
+    border-radius: 8px;
+    justify-content: space-between;
+    padding: 0 16px 0 0;
+    gap: 16px;
+    flex: 1 1 30vw;
+
+    h2{
+        font-size: 24px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
+    &__alerta {
+        display: block;
+        width: 15px;
+        border-radius: 8px 0 0 8px;
+        box-sizing: border-box;
+    }
+
+    &__iconeContainer {
+        display: flex;
+        align-items: center;
+
+        // &__img {
+        //     display: flex;
+        //     border-radius: 100%;
+        //     width: 5vw;
+        //     height: 5vw;
+        //     justify-content: center;
+        //     align-items: center;
+
+        //     img {
+        //         width: 2.5vw;
+        //     }
+        // }
+
+    }
+
+    &__botoes {
+        display: flex;
+        justify-content: space-around;
+        gap: 24px;
+        button{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    &__botaoToogle {
+        display: flex;
+        align-items: center;
+        &__toogle {
+            input {
+                display: none;
+            }
+    
+            label {
+                position: relative;
+                display: block;
+                height: 28px;
+                width: 52px;
+                background-color: $grey-background;
+                border: 1px #a2e3e6 solid;
+                border-radius: 100px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+    
+            label::after {
+                position: absolute;
+                left: 1px;
+                top: 1px;
+                display: block;
+                width: 26px;
+                height: 26px;
+                border-radius: 100px;
+                background-color: #fff;
+                box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+                content: '';
+                transition: all 0.3s ease;
+            }
+    
+            label:active::after {
+                transform: scale(1.15, 0.85);
+            }
+    
+            input:checked ~ label {
+                background-color: #4cda64;
+                border-color: #4cda64;
+            }
+    
+            input:checked ~ label::after {
+                left: 25px;
+            }
+    
+            input:disabled ~ label {
+                background-color: #d5d5d5;
+                pointer-events: none;
+            }
+    
+            input:disabled ~ label::after {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+}    
