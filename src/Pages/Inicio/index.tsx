@@ -7,6 +7,14 @@ export default function Inicio() {
             <h1>Suas Tarefas Pendentes</h1>
             <div className={styles.main__cardTarefaContainer}>
                 <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
+                <CardTarefa/>
             </div>
         </section>
     );

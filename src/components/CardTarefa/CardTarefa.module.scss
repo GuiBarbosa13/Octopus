@@ -1,13 +1,15 @@
 $black-font: black;
-$grey-background: rgba(199, 199, 199, 0.267);
+$grey-background: rgba(65, 65, 65, 0.616);
 
 .cardTarefaContainer {
     display: flex;
     background-color: $grey-background;
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     justify-content: space-between;
     padding: 0 16px 0 0;
     gap: 16px;
+    max-width: 45vw;
     flex: 1 1 30vw;
 
     h2{

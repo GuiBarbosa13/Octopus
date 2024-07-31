@@ -17,7 +17,7 @@ export default function FormTarefa() {
                     <input type="text" />
 
                     <select>
-                        <option disabled selected>Categoria</option>
+                        <option disabled defaultValue={'Categoria'}>Categoria</option>
                         <option value={'Finanças'}>Finanças</option>
                     </select>
                 </div>
