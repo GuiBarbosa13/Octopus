@@ -4,6 +4,7 @@ $font-white: white;
     margin-top: 50px;
     padding: 20px 156px;
     color: $font-white;
+    min-height: calc(100vh - 100px - 50px - 40px);
 
     h1 {
         text-align: center;

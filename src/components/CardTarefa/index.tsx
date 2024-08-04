@@ -2,8 +2,13 @@
 import IconEdit from '../../assets/icons/edit_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg';
 import IconDelete from '../../assets/icons/delete_24dp_992B15_FILL0_wght400_GRAD0_opsz24.svg';
 import styles from './CardTarefa.module.scss';
+import Toogle from '../Toogle';
 
-export default function CardTarefa() {
+interface Props{
+    id: string
+}
+
+export default function CardTarefa({id}:Props) {
     return (
         <div className={styles.cardTarefaContainer}>
 
@@ -45,12 +50,13 @@ export default function CardTarefa() {
                 </button>
             </div>
 
-            <div className={styles.cardTarefaContainer__botaoToogle}>
+            <Toogle id={id}/>
+            {/* <div className={styles.cardTarefaContainer__botaoToogle}>
                 <div className={styles.cardTarefaContainer__botaoToogle__toogle}>
                     <input type="checkbox" id="toggleCheckbox" />
                     <label htmlFor="toggleCheckbox"></label>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

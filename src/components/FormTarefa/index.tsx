@@ -1,6 +1,5 @@
 import styles from './FormTarefa.module.scss';
 import LogoBlack from '../../assets/logos/Logo-black.svg';
-import Botao from '../Botao';
 export default function FormTarefa() {
     return (
         <div className={styles.containerTarefa}>
@@ -27,8 +26,9 @@ export default function FormTarefa() {
                     <label>Prazo:</label>
                     <input type='date'></input>
                 </div>
-                
-                <Botao background='green' titulo='Cadastrar'/>
+                <div className={styles.containerTarefa__form__containerButton}>
+                    <button onClick={(e) => e.preventDefault()}>Cadastrar</button>
+                </div>
             </form>
             <div className={styles.formTarefa__overlay}></div>
         </div>

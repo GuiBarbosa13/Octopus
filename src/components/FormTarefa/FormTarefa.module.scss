@@ -3,7 +3,7 @@ $white-grey: rgb(112, 112, 112);
 $white: white;
 $green-button: rgb(10, 104, 10);
 
-.containerTarefa{
+.containerTarefa {
     display: flex;
     align-items: center;
     background-color: $grey;
@@ -13,21 +13,21 @@ $green-button: rgb(10, 104, 10);
     width: 100%;
     gap: 24px;
 
-       
-    &__form{
+
+    &__form {
         display: flex;
         justify-content: space-around;
         align-items: start;
         width: 100%;
         height: 100%;
 
-        &__containerImg{
+        &__containerImg {
             display: flex;
             flex-basis: auto;
             align-items: center;
             height: 25vh;
 
-            &__img{
+            &__img {
                 border-radius: 100%;
                 background-color: $white;
                 width: 5vw;
@@ -37,29 +37,29 @@ $green-button: rgb(10, 104, 10);
             }
         }
 
-        &__inputTexto{
+        &__inputTexto {
             display: flex;
             gap: 8px;
             flex-direction: column;
             width: 35vw;
 
-            select{
+            select {
                 width: 100%;
             }
         }
 
-        &__inputPrazo{
+        &__inputPrazo {
             display: flex;
             flex-direction: column;
             gap: 7px;
         }
 
-        label{
+        label {
             font-weight: 500;
             color: $white;
         }
 
-        input{
+        input {
             padding: 8px;
             border-radius: 8px;
             border: none;
@@ -72,5 +72,19 @@ $green-button: rgb(10, 104, 10);
             align-items: end;
             width: 20vw;
         }
+
+        &__containerButton {
+            display: flex;
+            align-items: center;
+            height: 25vh;
+            button {
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                background-color: $green-button;
+                padding: 16px;
+            }
+        }
+
     }
 }

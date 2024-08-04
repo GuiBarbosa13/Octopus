@@ -1,0 +1,59 @@
+$grey-background: rgba(65, 65, 65, 0.616);
+
+.botaoToogle {
+    display: flex;
+    align-items: center;
+    &__toogle {
+        &__input {
+            display: none;
+        }
+
+        &__label {
+            position: relative;
+            display: block;
+            height: 28px;
+            width: 52px;
+            background-color: $grey-background;
+            border: 1px #a2e3e6 solid;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        &__label::after {
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            display: block;
+            width: 26px;
+            height: 26px;
+            border-radius: 100px;
+            background-color: #fff;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+            content: '';
+            transition: all 0.3s ease;
+        }
+
+        &__label:active::after {
+            transform: scale(1.15, 0.85);
+        }
+
+        &__input:checked ~ label {
+            background-color: #4cda64;
+            border-color: #4cda64;
+        }
+
+        &__input:checked ~ label::after {
+            left: 25px;
+        }
+
+        &__input:disabled ~ label {
+            background-color: #d5d5d5;
+            pointer-events: none;
+        }
+
+        &__input:disabled ~ label::after {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+}
