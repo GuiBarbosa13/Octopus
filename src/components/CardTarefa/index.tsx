@@ -4,6 +4,8 @@ import IconDelete from '../../assets/icons/delete_24dp_992B15_FILL0_wght400_GRAD
 import styles from './CardTarefa.module.scss';
 import Toogle from '../Toogle';
 import Categoria from '../../Types/Categoria';
+import { useContext } from 'react';
+import { TarefaContext } from '../../context/TarefaContext';
 
 interface Props {
     id: string,
@@ -13,7 +15,16 @@ interface Props {
     concluido: boolean
 }
 
+
+
 export default function CardTarefa({ id, titulo, categoria, data }: Props) {
+
+    const { tarefas, setTarefas } = useContext(TarefaContext);
+
+    function aoDeletar(identificador: string) {
+        const tarefasFiltradas = tarefas.filter(tarefa => tarefa.id !== identificador);
+        setTarefas(tarefasFiltradas);
+    }
 
     if (!categoria || !data) {
         return
@@ -51,7 +62,7 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
                 <button>
                     <img src={IconEdit} alt='botão de editar' />
                 </button>
-                <button>
+                <button onClick={() => { aoDeletar(id) }}>
                     <img src={IconDelete} alt='botão de deletar' />
                 </button>
             </div>

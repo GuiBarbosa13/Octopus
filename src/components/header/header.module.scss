@@ -43,37 +43,28 @@ $font-black: rgb(8, 8, 8);
                 overflow: hidden;
                 // z-index: 1;
 
-                .header__formTarefa {
-                    display: none;
-                    position: absolute;
-                    top: 0px;
-                    left: 0;
-                    min-width: 100%;
-                    min-height: 70vh;
-                    background-color: $background-absolute-white;
-                    box-sizing: border-box;
-                    border: 1px solid #ddd;
-                    padding: 60px 10px 10px 10px;
-                    z-index: -1;
-                }
-
                 &:hover{
                     font-weight: 500;
-                }
-
-                &:hover .header__formTarefa{
-                    display: flex;
-                    align-items: start;
-                    justify-content: center;
-                    width: 100%;
-                    cursor: auto;
-                    padding: 80px 156px;
                 }
             }
         }
     }
 
-    &__formTarefa{
-        display: none;
+    &__formTarefa {
+        position: absolute;
+        left: 0;
+        min-width: 100vw;
+        min-height: 70vh;
+        background-color: $background-absolute-white;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        padding: 60px 10px 10px 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        cursor: auto;
+        padding: 80px 156px;
     }
 }

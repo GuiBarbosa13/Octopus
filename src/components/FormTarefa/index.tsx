@@ -1,5 +1,4 @@
 import styles from './FormTarefa.module.scss';
-import LogoBlack from '../../assets/logos/Logo-black.svg';
 import { useContext, useState } from 'react';
 import { TarefaContext } from '../../context/TarefaContext';
 import Tarefa from '../../Types/Tarefa';
@@ -7,7 +6,11 @@ import { v4 as uuidv4 } from 'uuid';
 import Categoria from '../../Types/Categoria';
 export default function FormTarefa() {
 
-    const { setTarefas, tarefas } = useContext(TarefaContext);
+    const { setTarefas, tarefas, estadoForm, setEstadoForm } = useContext(TarefaContext);
+
+    function aoAbrirForm(estadoForm: string) {
+        setEstadoForm(estadoForm === 'none' ? 'flex' : 'none');
+    }
 
     const categorias: Categoria[] = [
         { titulo: 'Finanças', cor: 'green' },
@@ -42,15 +45,8 @@ export default function FormTarefa() {
     }
 
     return (
-        <div className={styles.containerTarefa}>
+        <div className={styles.containerTarefa}> 
             <form className={styles.containerTarefa__form} onSubmit={cadastrarTarefa}>
-
-                <div className={styles.containerTarefa__form__containerImg}>
-                    <div className={styles.containerTarefa__form__containerImg__img}>
-                        <img src={LogoBlack} alt='Logo Octopus' />
-                    </div>
-                </div>
-
                 <div className={styles.containerTarefa__form__inputTexto}>
                     <label htmlFor='tituloTarefa'>Nova Tarefa:</label>
                     <input
@@ -67,7 +63,7 @@ export default function FormTarefa() {
                             setCategoria(selectedCategory || null);
                         }}
                     >
-                        <option disabled defaultValue={'Categoria'}>Categoria</option>
+                        <option disabled value={""}>Escolha uma categoria</option>
                         {categorias.map(cat => <option key={cat.titulo} value={cat.titulo}>{cat.titulo}</option>)}
                     </select>
                 </div>
@@ -75,15 +71,15 @@ export default function FormTarefa() {
 
                 <div className={styles.containerTarefa__form__inputPrazo}>
                     <label htmlFor='prazoTarefa'>Prazo:</label>
-                    <input 
-                        type='date' 
+                    <input
+                        type='date'
                         id='prazoTarefa'
-                        value={prazo? prazo.toISOString().split('T')[0] : ''}
+                        value={prazo ? prazo.toISOString().split('T')[0] : ''}
                         onChange={(e) => setPrazo(new Date(e.target.value))}
                     ></input>
                 </div>
                 <div className={styles.containerTarefa__form__containerButton}>
-                    <button type='submit'>
+                    <button type='submit' onClick={() => {aoAbrirForm(estadoForm)}}>
                         Cadastrar
                     </button>
                 </div>

@@ -8,6 +8,17 @@ $font-white: white;
 
     h1 {
         text-align: center;
+        padding: 32px;
+        border-radius: 8px;
+        backdrop-filter: blur(30px);
+    }
+
+    &__avisoContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 100px - 50px - 40px);
+        width: 100%;
     }
 
     &__cardTarefaContainer {
