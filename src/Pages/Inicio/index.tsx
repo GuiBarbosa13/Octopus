@@ -1,14 +1,18 @@
+import { useContext } from 'react';
 import CardTarefa from '../../components/CardTarefa';
 import styles from './Inicio.module.scss'
+import { TarefaContext } from '../../context/TarefaContext';
 
-let cards = [1,2,3,4,5,6,7,8,9];
+
 
 export default function Inicio() {
+    const { tarefas } = useContext(TarefaContext);
+
     return (
         <section className={styles.main}>
             <h1>Suas Tarefas Pendentes</h1>
             <div className={styles.main__cardTarefaContainer}>
-                {cards.map(tarefa => <CardTarefa id={tarefa.toString()} key={tarefa}/>)}
+                {tarefas.map(tarefa => <CardTarefa id={tarefa.id} categoria={tarefa.categoria} concluido={tarefa.concluido} titulo={tarefa.titulo} data={tarefa.prazo} key={tarefa.id} />)}
             </div>
         </section>
     );
