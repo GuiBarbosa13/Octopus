@@ -15,8 +15,6 @@ interface Props {
     concluido: boolean
 }
 
-
-
 export default function CardTarefa({ id, titulo, categoria, data }: Props) {
 
     const { tarefas, setTarefas } = useContext(TarefaContext);
@@ -56,8 +54,6 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
 
             </div>
 
-
-
             <div className={styles.cardTarefaContainer__botoes}>
                 <button>
                     <img src={IconEdit} alt='botão de editar' />
@@ -66,14 +62,7 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
                     <img src={IconDelete} alt='botão de deletar' />
                 </button>
             </div>
-
             <Toogle id={id} />
-            {/* <div className={styles.cardTarefaContainer__botaoToogle}>
-                <div className={styles.cardTarefaContainer__botaoToogle__toogle}>
-                    <input type="checkbox" id="toggleCheckbox" />
-                    <label htmlFor="toggleCheckbox"></label>
-                </div>
-            </div> */}
         </div>
     );
 }
