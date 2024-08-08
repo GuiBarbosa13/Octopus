@@ -133,6 +133,7 @@ $font-black: rgb(8, 8, 8);
 @media (max-width: 576px) {
     .header {
         padding: 0 28px;
+        justify-content: center;
     
         nav {    
 

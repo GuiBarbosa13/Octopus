@@ -28,3 +28,13 @@ $font-white: white;
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 992px){
+    .main{
+        padding: 10px 32px;
+
+        h1{
+            padding: 16px;
+        }
+    }
+}

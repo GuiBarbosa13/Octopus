@@ -29,40 +29,48 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
     }
 
     return (
-        <div className={styles.cardTarefaContainer}>
+        <>
+            <div className={styles.cardTarefaContainer}>
 
-            <div className={styles.cardTarefaContainer__infos}>
-                <div className={styles.cardTarefaContainer__infos__cor} style={{ background: `linear-gradient(to right, ${categoria.cor}, transparent)` }}>
+                <div className={styles.cardTarefaContainer__infos}>
+                    <div className={styles.cardTarefaContainer__infos__cor} style={{ background: `linear-gradient(to right, ${categoria.cor}, transparent)` }}>
+
+                    </div>
+
+                    <div className={styles.cardTarefaContainer__infos__descricao} >
+
+                        <h2 className={styles.cardTarefaContainer__infos__descricao__titulo}>
+                            {titulo}
+                        </h2>
+
+                        <h3 className={styles.cardTarefaContainer__infos__descricao__categoria}>
+                            {categoria.titulo}
+                        </h3>
+
+                        <h3 className={styles.cardTarefaContainer__infos__descricao__prazo}>
+                            Prazo: {data.toLocaleDateString("pt-BR")}
+                        </h3>
+
+                    </div>
 
                 </div>
 
-                <div className={styles.cardTarefaContainer__infos__descricao} >
-
-                    <h2 className={styles.cardTarefaContainer__infos__descricao__titulo}>
-                        {titulo}
-                    </h2>
-
-                    <h3 className={styles.cardTarefaContainer__infos__descricao__categoria}>
-                        {categoria.titulo}
-                    </h3>
-
-                    <h3 className={styles.cardTarefaContainer__infos__descricao__prazo}>
-                        Prazo: {data.toLocaleDateString("pt-BR")}
-                    </h3>
-
+                <div className={styles.cardTarefaContainer__botoes}>
+                    <button>
+                        <img src={IconEdit} alt='botão de editar' />
+                    </button>
+                    <button onClick={() => { aoDeletar(id) }}>
+                        <img src={IconDelete} alt='botão de deletar' />
+                    </button>
                 </div>
+                <Toogle id={id} />
 
             </div>
+                <form style={{display: 'none'}}>
+                    <input type='text' />
+                </form>
 
-            <div className={styles.cardTarefaContainer__botoes}>
-                <button>
-                    <img src={IconEdit} alt='botão de editar' />
-                </button>
-                <button onClick={() => { aoDeletar(id) }}>
-                    <img src={IconDelete} alt='botão de deletar' />
-                </button>
-            </div>
-            <Toogle id={id} />
-        </div>
+
+        </>
     );
 }

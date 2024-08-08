@@ -37,6 +37,7 @@ $grey-background: rgba(65, 65, 65, 0.616);
     &__botoes {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap-reverse;
         gap: 24px;
         align-items: center;
 
@@ -46,5 +47,19 @@ $grey-background: rgba(65, 65, 65, 0.616);
             cursor: pointer;
             height: fit-content;
         }
+    }
+}
+
+@media (max-width: 992px){
+    .cardTarefaContainer{
+        min-width: 90vw;
+        flex: 1 1 70vw;
+    }
+}
+
+@media (max-width: 576px){
+    .cardTarefaContainer{
+        min-width: 85vw;
+        flex: 1 1 70vw;
     }
 }

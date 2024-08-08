@@ -5,3 +5,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+@media (max-width: 992px){
+    .containerPaginaPadrao{
+        min-height: 100vh
+    }
+}
