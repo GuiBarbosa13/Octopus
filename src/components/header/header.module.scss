@@ -13,7 +13,7 @@ $font-black: rgb(8, 8, 8);
     top: 0;
     width: 100%;
     max-height: 50px;
-    z-index: 4;
+    z-index: 1;
 
     nav {
         display: flex;
@@ -22,7 +22,6 @@ $font-black: rgb(8, 8, 8);
 
         img {
             width: 50px;
-            z-index: 3;
         }
 
         ul {
@@ -41,7 +40,6 @@ $font-black: rgb(8, 8, 8);
                 color: $font-black;
                 cursor: pointer;
                 overflow: hidden;
-                // z-index: 1;
 
                 &:hover{
                     font-weight: 500;
@@ -111,7 +109,6 @@ $font-black: rgb(8, 8, 8);
             
             img {
                 width: 60px;
-                z-index: 3;
             }
 
             ul {

@@ -3,19 +3,16 @@ import IconEdit from '../../assets/icons/edit_24dp_E8EAED_FILL0_wght400_GRAD0_op
 import IconDelete from '../../assets/icons/delete_24dp_992B15_FILL0_wght400_GRAD0_opsz24.svg';
 import styles from './CardTarefa.module.scss';
 import Toogle from '../Toogle';
-import Categoria from '../../Types/Categoria';
 import { useContext } from 'react';
 import { TarefaContext } from '../../context/TarefaContext';
+import { FormEditTarefa } from '../FormEditTarefa';
+import Tarefa from '../../Types/Tarefa';
 
 interface Props {
-    id: string,
-    titulo: string,
-    data: Date | null,
-    categoria: Categoria | null,
-    concluido: boolean
+    tarefa: Tarefa
 }
 
-export default function CardTarefa({ id, titulo, categoria, data }: Props) {
+export default function CardTarefa({ tarefa }: Props) {
 
     const { tarefas, setTarefas } = useContext(TarefaContext);
 
@@ -24,7 +21,7 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
         setTarefas(tarefasFiltradas);
     }
 
-    if (!categoria || !data) {
+    if (!tarefa.categoria || !tarefa.prazo) {
         return
     }
 
@@ -33,22 +30,22 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
             <div className={styles.cardTarefaContainer}>
 
                 <div className={styles.cardTarefaContainer__infos}>
-                    <div className={styles.cardTarefaContainer__infos__cor} style={{ background: `linear-gradient(to right, ${categoria.cor}, transparent)` }}>
+                    <div className={styles.cardTarefaContainer__infos__cor} style={{ background: `linear-gradient(to right, ${tarefa.categoria.cor}, transparent)` }}>
 
                     </div>
 
                     <div className={styles.cardTarefaContainer__infos__descricao} >
 
                         <h2 className={styles.cardTarefaContainer__infos__descricao__titulo}>
-                            {titulo}
+                            {tarefa.titulo}
                         </h2>
 
                         <h3 className={styles.cardTarefaContainer__infos__descricao__categoria}>
-                            {categoria.titulo}
+                            {tarefa.categoria.titulo}
                         </h3>
 
                         <h3 className={styles.cardTarefaContainer__infos__descricao__prazo}>
-                            Prazo: {data.toLocaleDateString("pt-BR")}
+                            Prazo: {tarefa.prazo.toISOString()}
                         </h3>
 
                     </div>
@@ -59,18 +56,13 @@ export default function CardTarefa({ id, titulo, categoria, data }: Props) {
                     <button>
                         <img src={IconEdit} alt='botão de editar' />
                     </button>
-                    <button onClick={() => { aoDeletar(id) }}>
+                    <button onClick={() => { aoDeletar(tarefa.id) }}>
                         <img src={IconDelete} alt='botão de deletar' />
                     </button>
                 </div>
-                <Toogle id={id} />
-
+                <Toogle id={tarefa.id} />
             </div>
-                <form style={{display: 'none'}}>
-                    <input type='text' />
-                </form>
-
-
+            <FormEditTarefa tarefa={tarefa} />
         </>
     );
 }

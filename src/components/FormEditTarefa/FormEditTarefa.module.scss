@@ -1,0 +1,58 @@
+$grey-background: rgba(65, 65, 65, 0.616);
+
+.containerFormEditTarefa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(15px);
+    display: none;
+
+    &__titulo{
+        font-size: 32px;
+    }
+
+    &__form{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 10px;
+        background-color: $grey-background;
+        padding: 16px;
+        border-radius: 8px;
+        width: 50vw;
+        position: relative;
+
+        &__btnFechar{
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-image: url('/src/assets/icons/close_40dp_E8EAED_FILL0_wght400_GRAD0_opsz40.svg');
+            background-size: contain;
+            width: 25px;
+            height: 25px;
+            border: none;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        &__btnFechar:hover{
+            background-color: rgb(39, 39, 39);
+        }
+
+        div{
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        &__inputText, &__inputOption, &__inputDate{
+            font-size: 18px;
+        }
+    }
+}
