@@ -25,12 +25,11 @@ export default function CardTarefa({ tarefa }: Props) {
     }
 
     const aoEditar = (task: Tarefa) => {
-        const tarefasAtualizadas = tarefas.map(tarefa => 
+        const tarefasAtualizadas = tarefas.map(tarefa =>
             tarefa.id === task.id ? { ...tarefa, emEdicao: true } : tarefa
         );
 
         setTarefas(tarefasAtualizadas);
-        console.log(tarefasAtualizadas);
     }
 
     return (
@@ -53,7 +52,11 @@ export default function CardTarefa({ tarefa }: Props) {
                         </h3>
 
                         <h3 className={styles.cardTarefaContainer__infos__descricao__prazo}>
-                            Prazo: {tarefa.prazo.toISOString()}
+                            Prazo: {new Date(tarefa.prazo).toLocaleDateString('pt-BR', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric'
+                            })}
                         </h3>
 
                     </div>

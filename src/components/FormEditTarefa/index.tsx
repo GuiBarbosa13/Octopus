@@ -13,7 +13,7 @@ export function FormEditTarefa({ tarefa }: Props) {
 
     const [titulo, setTitulo] = useState('');
     const [categoria, setCategoria] = useState('');
-    const [prazo, setPrazo] = useState('');
+    const [prazo, setPrazo] = useState<string>('');
 
     // Atualiza os valores do formulário quando a tarefa em edição muda
     useEffect(() => {
@@ -33,7 +33,7 @@ export function FormEditTarefa({ tarefa }: Props) {
                     ...task,
                     titulo: titulo,
                     categoria: categoriasCadastradas.find(cat => cat.titulo === categoria),
-                    prazo: prazo ? new Date(prazo) : undefined,
+                    prazo: prazo ? new Date(`${prazo}T00:00:00`) : undefined,
                     emEdicao: false
                 }
                 : task
@@ -54,7 +54,7 @@ export function FormEditTarefa({ tarefa }: Props) {
             <form className={styles.containerFormEditTarefa__form} onSubmit={aoEditar}>
                 <button 
                     className={styles.containerFormEditTarefa__form__btnFechar} 
-                    onClick={() => { setEstadoFormEditTarefa('none') }}
+                    onClick={(e) => { e.preventDefault(); setEstadoFormEditTarefa('none') }}
                 />
 
                 <div>

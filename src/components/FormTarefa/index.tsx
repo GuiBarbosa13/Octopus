@@ -73,7 +73,7 @@ export default function FormTarefa() {
                         type='date'
                         id='prazoTarefa'
                         value={prazo ? prazo.toISOString().split('T')[0] : ''}
-                        onChange={(e) => setPrazo(new Date(e.target.value))}
+                        onChange={(e) => setPrazo(new Date(e.target.value + ' 00:00:00'))}
                     ></input>
                 </div>
                 <div className={styles.containerTarefa__form__containerButton}>
