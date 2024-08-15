@@ -14,7 +14,7 @@ interface Props {
 
 export default function CardTarefa({ tarefa }: Props) {
 
-    const { tarefas, setTarefas } = useContext(TarefaContext);
+    const { tarefas, setTarefas, setEstadoFormEditTarefa, setTarefaEmEdicao } = useContext(TarefaContext);
 
     function aoDeletar(identificador: string) {
         const tarefasFiltradas = tarefas.filter(tarefa => tarefa.id !== identificador);
@@ -53,7 +53,11 @@ export default function CardTarefa({ tarefa }: Props) {
                 </div>
 
                 <div className={styles.cardTarefaContainer__botoes}>
-                    <button>
+                    <button
+                        onClick={() => {
+                            setEstadoFormEditTarefa('flex');
+                            setTarefaEmEdicao(tarefa);
+                        }}>
                         <img src={IconEdit} alt='botão de editar' />
                     </button>
                     <button onClick={() => { aoDeletar(tarefa.id) }}>
@@ -62,7 +66,7 @@ export default function CardTarefa({ tarefa }: Props) {
                 </div>
                 <Toogle id={tarefa.id} />
             </div>
-            <FormEditTarefa tarefa={tarefa} />
+            <FormEditTarefa tarefa={tarefa}/>
         </>
     );
 }

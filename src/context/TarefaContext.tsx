@@ -11,8 +11,14 @@ interface TarefaContextType {
     tarefas: Tarefa[];
     setTarefas: React.Dispatch<any>;
 
+    tarefaEmEdicao: Tarefa | null;
+    setTarefaEmEdicao: React.Dispatch<any>;
+
     estadoForm: string;
     setEstadoForm: React.Dispatch<any>;
+
+    estadoFormEditTarefa: string;
+    setEstadoFormEditTarefa: React.Dispatch<any>;
 }
 
 const valorDefaultContexto: TarefaContextType = {
@@ -20,6 +26,10 @@ const valorDefaultContexto: TarefaContextType = {
     setTarefas: () => { },
     estadoForm: '',
     setEstadoForm: () => { },
+    estadoFormEditTarefa: '',
+    setEstadoFormEditTarefa: () => { },
+    tarefaEmEdicao: null,
+    setTarefaEmEdicao: () => { },
 };
 
 export const TarefaContext = createContext(valorDefaultContexto);
@@ -41,8 +51,12 @@ export const TarefaProvider = ({ children }: TarefaProviderProps) => {
 
     const [estadoForm, setEstadoForm] = useState('none');
 
+    const [estadoFormEditTarefa, setEstadoFormEditTarefa] = useState('none');
+
+    const [tarefaEmEdicao, setTarefaEmEdicao] = useState<Tarefa | null>(null);
+
     return (
-        <TarefaContext.Provider value={{ tarefas, setTarefas, estadoForm, setEstadoForm }}>
+        <TarefaContext.Provider value={{ tarefas, setTarefas, estadoForm, setEstadoForm, estadoFormEditTarefa, setEstadoFormEditTarefa, tarefaEmEdicao, setTarefaEmEdicao  }}>
             {children}
         </TarefaContext.Provider>
     );

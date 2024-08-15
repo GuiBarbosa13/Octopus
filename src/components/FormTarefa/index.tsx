@@ -4,6 +4,7 @@ import { TarefaContext } from '../../context/TarefaContext';
 import Tarefa from '../../Types/Tarefa';
 import { v4 as uuidv4 } from 'uuid';
 import Categoria from '../../Types/Categoria';
+import categoriasCadastradas from '../../data/categorias';
 export default function FormTarefa() {
 
     const { setTarefas, tarefas, estadoForm, setEstadoForm } = useContext(TarefaContext);
@@ -12,11 +13,7 @@ export default function FormTarefa() {
         setEstadoForm(estadoForm === 'none' ? 'flex' : 'none');
     }
 
-    const categorias: Categoria[] = [
-        { titulo: 'Finanças', cor: 'green' },
-        { titulo: 'Pessoal', cor: 'blue' },
-        { titulo: 'Trabalho', cor: 'red' },
-    ];
+    const categorias: Categoria[] = categoriasCadastradas;
 
     const [titulo, setTitulo] = useState('');
     const [categoria, setCategoria] = useState<Categoria | null>(null);

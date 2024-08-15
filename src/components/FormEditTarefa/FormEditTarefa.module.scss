@@ -1,7 +1,6 @@
 $grey-background: rgba(65, 65, 65, 0.616);
 
 .containerFormEditTarefa{
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -11,7 +10,7 @@ $grey-background: rgba(65, 65, 65, 0.616);
     left: 0;
     top: 0;
     backdrop-filter: blur(15px);
-    display: none;
+
 
     &__titulo{
         font-size: 32px;
