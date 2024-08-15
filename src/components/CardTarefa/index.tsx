@@ -1,4 +1,3 @@
-// import LogoBlack from '../../assets/logos/Logo-black.svg';
 import IconEdit from '../../assets/icons/edit_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg';
 import IconDelete from '../../assets/icons/delete_24dp_992B15_FILL0_wght400_GRAD0_opsz24.svg';
 import styles from './CardTarefa.module.scss';
@@ -14,7 +13,7 @@ interface Props {
 
 export default function CardTarefa({ tarefa }: Props) {
 
-    const { tarefas, setTarefas, setEstadoFormEditTarefa, setTarefaEmEdicao } = useContext(TarefaContext);
+    const { tarefas, setTarefas, setEstadoFormEditTarefa } = useContext(TarefaContext);
 
     function aoDeletar(identificador: string) {
         const tarefasFiltradas = tarefas.filter(tarefa => tarefa.id !== identificador);
@@ -22,7 +21,16 @@ export default function CardTarefa({ tarefa }: Props) {
     }
 
     if (!tarefa.categoria || !tarefa.prazo) {
-        return
+        return null;
+    }
+
+    const aoEditar = (task: Tarefa) => {
+        const tarefasAtualizadas = tarefas.map(tarefa => 
+            tarefa.id === task.id ? { ...tarefa, emEdicao: true } : tarefa
+        );
+
+        setTarefas(tarefasAtualizadas);
+        console.log(tarefasAtualizadas);
     }
 
     return (
@@ -56,7 +64,7 @@ export default function CardTarefa({ tarefa }: Props) {
                     <button
                         onClick={() => {
                             setEstadoFormEditTarefa('flex');
-                            setTarefaEmEdicao(tarefa);
+                            aoEditar(tarefa);
                         }}>
                         <img src={IconEdit} alt='botão de editar' />
                     </button>
@@ -66,7 +74,7 @@ export default function CardTarefa({ tarefa }: Props) {
                 </div>
                 <Toogle id={tarefa.id} />
             </div>
-            <FormEditTarefa tarefa={tarefa}/>
+            <FormEditTarefa tarefa={tarefa} />
         </>
     );
 }

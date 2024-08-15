@@ -32,6 +32,7 @@ export default function FormTarefa() {
             categoria,
             prazo,
             concluido: false,
+            emEdicao: false
         }
 
         setTarefas([...tarefas, novaTarefa]);

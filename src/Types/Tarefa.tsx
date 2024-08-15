@@ -6,4 +6,5 @@ export default interface Tarefa{
     categoria: Categoria | null,
     prazo:Date | null,
     concluido: boolean,
+    emEdicao: boolean
 }
