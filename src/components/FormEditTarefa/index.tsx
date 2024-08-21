@@ -57,7 +57,7 @@ export function FormEditTarefa({ tarefa }: Props) {
                     onClick={(e) => { e.preventDefault(); setEstadoFormEditTarefa('none') }}
                 />
 
-                <div>
+                <div className={styles.containerFormEditTarefa__form__container_input}>
                     <input
                         type="text"
                         value={titulo}
@@ -73,14 +73,14 @@ export function FormEditTarefa({ tarefa }: Props) {
                             <option key={categoria.titulo}>{categoria.titulo}</option>
                         ))}
                     </select>
-                </div>
-                <div>
                     <input
                         type="date"
                         value={prazo}
                         className={styles.containerFormEditTarefa__form__inputDate}
                         onChange={(e) => setPrazo(e.target.value)}
                     />
+                </div>
+                <div className={styles.containerFormEditTarefa__container_button}>
                     <button type="submit">Atualizar</button>
                 </div>
             </form>

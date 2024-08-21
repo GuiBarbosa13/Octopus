@@ -11,6 +11,7 @@ $grey-background: rgba(65, 65, 65, 0.616);
     gap: 16px;
     max-width: 45vw;
     flex: 1 1 30vw;
+    position: relative;
 
     h2 {
         font-size: 24px;
@@ -41,14 +42,32 @@ $grey-background: rgba(65, 65, 65, 0.616);
         gap: 24px;
         align-items: center;
 
-        button {
+        &__edit {
             background-color: transparent;
             border: none;
             cursor: pointer;
             height: fit-content;
         }
+
+        &__delete{
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-image: url('/src/assets/icons/close_40dp_E8EAED_FILL0_wght400_GRAD0_opsz40.svg');
+            background-size: contain;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        &__delete:hover{
+            background-color: rgb(2, 2, 2);
+        }
     }
 }
+
 
 @media (max-width: 992px){
     .cardTarefaContainer{

@@ -1,16 +1,18 @@
 $grey-background: rgba(65, 65, 65, 0.616);
+$green-button: rgb(10, 104, 10);
+
 
 .containerFormEditTarefa {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: fixed; /* Alterado de absolute para fixed */
+    position: fixed;
     width: 100vw;
     height: 100vh;
     left: 0;
     top: 0;
-    z-index: 1000; /* Adicionado z-index */
+    z-index: 1000;
     backdrop-filter: blur(15px);
 
     &__titulo {
@@ -27,7 +29,8 @@ $grey-background: rgba(65, 65, 65, 0.616);
         border-radius: 8px;
         width: 50vw;
         position: relative;
-        z-index: 1001; /* Garante que esteja acima do backdrop */
+        z-index: 1001;
+        /* Garante que esteja acima do backdrop */
 
         &__btnFechar {
             position: absolute;
@@ -35,26 +38,63 @@ $grey-background: rgba(65, 65, 65, 0.616);
             right: -15px;
             background-image: url('/src/assets/icons/close_40dp_E8EAED_FILL0_wght400_GRAD0_opsz40.svg');
             background-size: contain;
-            width: 25px;
-            height: 25px;
+            width: 35px;
+            height: 35px;
             border: none;
             border-radius: 100%;
             cursor: pointer;
         }
 
         &__btnFechar:hover {
-            background-color: rgb(39, 39, 39);
+            background-color: rgb(2, 2, 2);
         }
 
-        div {
+        &__container_input {
             display: flex;
             gap: 10px;
             flex-direction: column;
-            width: 50%;
+            width: 80%;
         }
 
-        &__inputText, &__inputOption, &__inputDate {
+        &__inputText,
+        &__inputOption,
+        &__inputDate {
             font-size: 18px;
+            border-radius: 16px;
+            padding: 8px;
+            border: solid .5px;
+            background-color: transparent;
+        }
+
+        &__inputOption, &__inputDate{
+            width: 45%;
+        }
+
+        &__inputOption {
+            option {
+                background-color: transparent;
+                color: #000;
+            }
+        }        
+    }
+
+    &__container_button {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button{
+            background-color: $green-button;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: rgb(5, 46, 5);
         }
     }
 }

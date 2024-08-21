@@ -1,5 +1,4 @@
 import IconEdit from '../../assets/icons/edit_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg';
-import IconDelete from '../../assets/icons/delete_24dp_992B15_FILL0_wght400_GRAD0_opsz24.svg';
 import styles from './CardTarefa.module.scss';
 import Toogle from '../Toogle';
 import { useContext } from 'react';
@@ -38,11 +37,9 @@ export default function CardTarefa({ tarefa }: Props) {
 
                 <div className={styles.cardTarefaContainer__infos}>
                     <div className={styles.cardTarefaContainer__infos__cor} style={{ background: `linear-gradient(to right, ${tarefa.categoria.cor}, transparent)` }}>
-
                     </div>
 
                     <div className={styles.cardTarefaContainer__infos__descricao} >
-
                         <h2 className={styles.cardTarefaContainer__infos__descricao__titulo}>
                             {tarefa.titulo}
                         </h2>
@@ -60,7 +57,6 @@ export default function CardTarefa({ tarefa }: Props) {
                         </h3>
 
                     </div>
-
                 </div>
 
                 <div className={styles.cardTarefaContainer__botoes}>
@@ -68,11 +64,17 @@ export default function CardTarefa({ tarefa }: Props) {
                         onClick={() => {
                             setEstadoFormEditTarefa('flex');
                             aoEditar(tarefa);
-                        }}>
+                        }}
+                        className={styles.cardTarefaContainer__botoes__edit}
+                    >
                         <img src={IconEdit} alt='botão de editar' />
                     </button>
-                    <button onClick={() => { aoDeletar(tarefa.id) }}>
-                        <img src={IconDelete} alt='botão de deletar' />
+                    <button
+                        onClick={
+                            () => { aoDeletar(tarefa.id) }
+                        }
+                        className={styles.cardTarefaContainer__botoes__delete}
+                    >
                     </button>
                 </div>
                 <Toogle id={tarefa.id} />
