@@ -51,7 +51,8 @@ export default function FormTarefa() {
                         type="text"
                         id='tituloTarefa'
                         value={titulo}
-                        onChange={(e) => setTitulo(e.target.value)} />
+                        onChange={(e) => setTitulo(e.target.value)} 
+                    />
 
                     <select
                         id='categoriaTarefa'

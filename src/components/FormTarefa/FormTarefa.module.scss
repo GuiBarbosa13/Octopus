@@ -1,4 +1,4 @@
-$grey-background: rgba(65, 65, 65, 0.616);
+$grey-background: rgb(39, 39, 39);
 $green-button: rgb(10, 104, 10);
 
 .containerTarefa {
@@ -26,12 +26,14 @@ $green-button: rgb(10, 104, 10);
             flex-direction: column;
             width: 35vw;
 
-            select {
+            select, input {
                 font-size: 18px;
                 border-radius: 16px;
                 padding: 8px;
                 border: solid .5px;
+                border-color: white;
                 background-color: transparent;
+
             }
         }
 
@@ -39,6 +41,16 @@ $green-button: rgb(10, 104, 10);
             display: flex;
             flex-direction: column;
             gap: 7px;
+
+            input {
+                font-size: 18px;
+                border-radius: 16px;
+                padding: 8px;
+                border: solid .5px;
+                border-color: white;
+                background-color: transparent;
+
+            }
         }
 
         label {
@@ -46,18 +58,14 @@ $green-button: rgb(10, 104, 10);
             // color: $white;
         }
 
-        input {
-            padding: 8px;
-            border-radius: 8px;
-            border: none;
-            // background-color: $white-grey;
-        }
-
         select {
-            @extend input;
             display: flex;
             align-items: end;
             width: 20vw;
+
+            option {
+                background-color: $grey-background;
+            }
         }
 
         &__containerButton {
