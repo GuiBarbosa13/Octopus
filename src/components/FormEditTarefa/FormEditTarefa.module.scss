@@ -1,5 +1,8 @@
 $grey-background: rgba(65, 65, 65, 0.616);
 $green-button: rgb(10, 104, 10);
+$green-button-hover: rgb(7, 66, 7);
+$white-titulo: rgb(255, 255, 255);
+$black-button-fechar-hover: rgb(2, 2, 2);
 
 
 .containerFormEditTarefa {
@@ -17,20 +20,18 @@ $green-button: rgb(10, 104, 10);
 
     &__titulo {
         font-size: 32px;
-        color: white;
+        color: $white-titulo;
     }
 
     &__form {
         display: flex;
         justify-content: space-evenly;
-        gap: 10px;
         background-color: $grey-background;
         padding: 16px;
-        border-radius: 8px;
+        border-radius: 16px;
         width: 50vw;
         position: relative;
         z-index: 1001;
-        /* Garante que esteja acima do backdrop */
 
         &__btnFechar {
             position: absolute;
@@ -46,7 +47,7 @@ $green-button: rgb(10, 104, 10);
         }
 
         &__btnFechar:hover {
-            background-color: rgb(2, 2, 2);
+            background-color: $black-button-fechar-hover;
         }
 
         &__container_input {
@@ -72,8 +73,7 @@ $green-button: rgb(10, 104, 10);
 
         &__inputOption {
             option {
-                background-color: transparent;
-                color: #000;
+                background-color: $grey-background;
             }
         }        
     }
@@ -86,15 +86,15 @@ $green-button: rgb(10, 104, 10);
 
         button{
             background-color: $green-button;
-            padding: 8px;
+            padding: 16px;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
         }
 
         button:hover{
-            background-color: rgb(5, 46, 5);
+            background-color: $green-button-hover;
         }
     }
 }
