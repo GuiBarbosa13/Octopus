@@ -22,7 +22,7 @@ export default function Inicio() {
         <section className={styles.main}>
             <h1>Suas Tarefas Pendentes</h1>
             <div className={styles.main__cardTarefaContainer}>
-                {tarefas.map(tarefa => <CardTarefa id={tarefa.id} categoria={tarefa.categoria} concluido={tarefa.concluido} titulo={tarefa.titulo} data={tarefa.prazo} key={tarefa.id} tarefa={tarefa}/>)}
+                {tarefas.map(tarefa => <CardTarefa tarefa={tarefa}/>)}
             </div>
         </section>
     );
