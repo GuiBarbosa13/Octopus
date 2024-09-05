@@ -41,17 +41,20 @@ $font-black: rgb(8, 8, 8);
                 cursor: pointer;
                 overflow: hidden;
 
-                &:hover{
+                &:hover {
                     font-weight: 500;
                 }
             }
         }
 
-        .header__menu{
-            background-color: transparent;
-            border: none;
+        .header__menu {
+            display: none;
+        }
+
+        .header__menu__label {
             width: 50px;
             background-image: url('src/assets/icons/menu_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg');
+            background-repeat: no-repeat;
             background-position: center;
             display: none;
         }
@@ -61,18 +64,12 @@ $font-black: rgb(8, 8, 8);
         position: absolute;
         left: 0;
         min-width: 100vw;
-        min-height: 70vh;
+        min-height: 50vh;
         background-color: $background-absolute-white;
         box-sizing: border-box;
-        border: 1px solid #ddd;
-        padding: 60px 10px 10px 10px;
-
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        cursor: auto;
-        padding: 80px 156px;
     }
 }
 
@@ -80,33 +77,29 @@ $font-black: rgb(8, 8, 8);
 
     .header {
         padding: 0 32px;
-    
-        nav {    
+
+        nav {
 
             ul {
                 gap: 36px;
                 padding: 0;
-    
+
                 li {
                     font-size: 24px;
                 }
             }
         }
-    
-        &__formTarefa {
-            padding: 40px 32px;
-        }
     }
 }
 
 @media (max-width: 768px) {
-    
+
     .header {
 
         min-height: 70px;
-    
+
         nav {
-            
+
             img {
                 width: 60px;
             }
@@ -114,13 +107,9 @@ $font-black: rgb(8, 8, 8);
             ul {
                 gap: 32px;
                 padding: 0;
-    
+
                 li {
                     font-size: 24px;
-                }
-
-                .header__home{
-                    display: none;
                 }
             }
         }
@@ -131,23 +120,55 @@ $font-black: rgb(8, 8, 8);
     .header {
         padding: 0 28px;
         justify-content: center;
-    
-        nav {    
+        min-height: 50px;
+        max-height: max-content;
+        align-items: start;
+        flex-direction: row;
+
+
+        nav {
+
+            img {
+                height: 70px;
+            }
 
             ul {
                 display: none;
-    
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background-color: $background-absolute-white;
+                width: 200px;
+                padding: 20px;
+
                 li {
                     font-size: 24px;
                 }
-
-                .header__home{
-                    display: none;
-                }
             }
 
-            .header__menu{
-                display: inline-block;
+            .header__menu {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            .header__menu__label {
+                display: block;
+                cursor: pointer;
+                height: 50px;
+                background-size: contain;
+            }
+
+            .header__menu:checked~.header__menu__label+ul {
+                display: flex;
+            }
+
+            .header__menu:checked~.header__menu__label {
+                background-image: url('src/assets/icons/close_menu.svg');
             }
         }
     }

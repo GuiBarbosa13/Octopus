@@ -1,6 +1,8 @@
 $grey-background: rgb(39, 39, 39);
 $green-button: rgb(10, 104, 10);
 $green-button-hover: rgb(7, 66, 7);
+$red-button: rgb(199, 5, 5);
+$red-button-hover: rgb(78, 0, 0);
 $white-border: rgb(255, 255, 255);
 
 .containerTarefa {
@@ -14,8 +16,6 @@ $white-border: rgb(255, 255, 255);
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 100%;
-        height: 100%;
         gap: 5vw;
 
         &__inputTexto {
@@ -24,7 +24,8 @@ $white-border: rgb(255, 255, 255);
             flex-direction: column;
             width: 40vw;
 
-            select, input {
+            select,
+            input {
                 font-size: 18px;
                 border-radius: 16px;
                 padding: 8px;
@@ -65,7 +66,7 @@ $white-border: rgb(255, 255, 255);
             display: flex;
             align-items: center;
 
-            button {
+            &__buttonCadastrar {
                 border-radius: 8px;
                 border: none;
                 cursor: pointer;
@@ -73,9 +74,57 @@ $white-border: rgb(255, 255, 255);
                 padding: 16px;
             }
 
-            button:hover {
+            &__buttonCadastrar:hover {
                 background-color: $green-button-hover;
             };
+
+            &__buttonFechar{
+                @extend .containerTarefa__form__containerButton__buttonCadastrar;
+                background-color: $red-button;
+                display: none;
+            }
         }
+
+    }
+}
+
+@media (max-width: 992px) {
+    .containerTarefa {
+        &__form {
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .containerTarefa {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        
+        &__form {
+            flex-direction: column;
+            align-items: start;
+            width: 70vw;
+
+            &__inputTexto {
+                width: 100%;
+
+                select {
+                    width: 70%;
+                }
+            }
+
+            &__containerButton{
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+
+                &__buttonFechar{
+                    display: block;
+                }
+            }
+
+        }
+
     }
 }

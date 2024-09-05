@@ -13,6 +13,13 @@ export default function FormTarefa() {
         setEstadoForm(estadoForm === 'none' ? 'flex' : 'none');
     }
 
+    function fecharForm(){
+        setTitulo('');
+        setCategoria(null);
+        setPrazo(null);
+        setEstadoForm('none');
+    }
+
     const categorias: Categoria[] = categoriasCadastradas;
 
     const [titulo, setTitulo] = useState('');
@@ -43,7 +50,7 @@ export default function FormTarefa() {
     }
 
     return (
-        <div className={styles.containerTarefa}> 
+        <div className={styles.containerTarefa}>
             <form className={styles.containerTarefa__form} onSubmit={cadastrarTarefa}>
                 <div className={styles.containerTarefa__form__inputTexto}>
                     <label htmlFor='tituloTarefa'>Nova Tarefa:</label>
@@ -51,7 +58,7 @@ export default function FormTarefa() {
                         type="text"
                         id='tituloTarefa'
                         value={titulo}
-                        onChange={(e) => setTitulo(e.target.value)} 
+                        onChange={(e) => setTitulo(e.target.value)}
                     />
 
                     <select
@@ -78,8 +85,18 @@ export default function FormTarefa() {
                     ></input>
                 </div>
                 <div className={styles.containerTarefa__form__containerButton}>
-                    <button type='submit' onClick={() => {aoAbrirForm(estadoForm)}}>
+                    <button
+                        type='submit' onClick={() => { aoAbrirForm(estadoForm) }}
+                        className={styles.containerTarefa__form__containerButton__buttonCadastrar}
+                    >
                         Cadastrar
+                    </button>
+
+                    <button
+                        type='submit' onClick={() => { fecharForm() }}
+                        className={styles.containerTarefa__form__containerButton__buttonFechar}
+                    >
+                        Fechar
                     </button>
                 </div>
             </form>
