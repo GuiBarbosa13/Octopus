@@ -53,7 +53,7 @@ $font-black: rgb(8, 8, 8);
 
         .header__menu__label {
             width: 50px;
-            background-image: url('src/assets/icons/menu_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg');
+            background-image: url('/src/assets/icons/menu_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg');
             background-repeat: no-repeat;
             background-position: center;
             display: none;
@@ -168,7 +168,7 @@ $font-black: rgb(8, 8, 8);
             }
 
             .header__menu:checked~.header__menu__label {
-                background-image: url('src/assets/icons/close_menu.svg');
+                background-image: url('src\assets\icons\close_menu.svg');
             }
         }
     }
