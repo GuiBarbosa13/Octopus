@@ -30,6 +30,14 @@ export default function FormTarefa() {
         e.preventDefault();
 
         if (!categoria || !prazo) {
+
+            window.alert("Selecione uma categoria e um prazo!")
+            return
+        }
+
+        if(titulo == ''){
+            window.alert("Por favor, escreva uma tarefa!")
+
             return
         }
 

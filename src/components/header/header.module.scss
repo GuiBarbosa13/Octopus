@@ -168,7 +168,7 @@ $font-black: rgb(8, 8, 8);
             }
 
             .header__menu:checked~.header__menu__label {
-                background-image: url('src\assets\icons\close_menu.svg');
+                background-image: url('/src/assets/icons/close_menu.svg');
             }
         }
     }

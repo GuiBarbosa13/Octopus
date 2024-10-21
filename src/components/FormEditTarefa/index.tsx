@@ -52,8 +52,8 @@ export function FormEditTarefa({ tarefa }: Props) {
         <div className={styles.containerFormEditTarefa} style={{ display: estadoFormEditTarefa }}>
             <h3 className={styles.containerFormEditTarefa__titulo}>Editar Tarefa</h3>
             <form className={styles.containerFormEditTarefa__form} onSubmit={aoEditar}>
-                <button 
-                    className={styles.containerFormEditTarefa__form__btnFechar} 
+                <button
+                    className={styles.containerFormEditTarefa__form__btnFechar}
                     onClick={(e) => { e.preventDefault(); setEstadoFormEditTarefa('none') }}
                 />
 
@@ -62,7 +62,7 @@ export function FormEditTarefa({ tarefa }: Props) {
                         type="text"
                         value={titulo}
                         className={styles.containerFormEditTarefa__form__inputText}
-                        onChange={(e) => setTitulo(e.target.value)} 
+                        onChange={(e) => setTitulo(e.target.value)}
                     />
                     <select
                         className={styles.containerFormEditTarefa__form__inputOption}
